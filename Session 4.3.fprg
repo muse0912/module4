@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="chung"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-10-19 12:13:09 AM"/>
+        <attribute name="created" value="Y2h1bmc7TEFQVE9QLUlCNDNOTU9SOzIwMjAtMTAtMTg7MTE6NTM6MTcgUE07Mjg3Ng=="/>
+        <attribute name="edited" value="Y2h1bmc7TEFQVE9QLUlCNDNOTU9SOzIwMjAtMTAtMTk7MTI6MTM6MDkgQU07NTsyOTcy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numTicket" type="Integer" array="False" size=""/>
+            <declare name="seatPrice" type="Integer" array="False" size=""/>
+            <declare name="taxRate" type="Integer" array="False" size=""/>
+            <declare name="totalPrice" type="Integer" array="False" size=""/>
+            <output expression="&quot;How many ticket?&quot;" newline="True"/>
+            <input variable="numTicket"/>
+            <output expression="&quot;How much is the seat?&quot;" newline="True"/>
+            <input variable="seatPrice"/>
+            <output expression="&quot;What is the tax rate?&quot;" newline="True"/>
+            <input variable="taxRate"/>
+            <assign variable="TotalPrice" expression="getTotalPrice(numTicket, seatPrice)"/>
+            <output expression="&quot;The total cost is &quot; &amp;totalPrice&amp; &quot;number of ticket is &quot; &amp;numTicket&amp; &quot;the seat price per seat is &quot; &amp;seatPrice&amp; &quot; and the applied sales tax rate is &quot; &amp;taxRate" newline="True"/>
+        </body>
+    </function>
+    <function name="getTaxedPrice" type="Integer" variable="TaxedPrice">
+        <parameters>
+            <parameter name="totalSeatPrice" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="TaxedPrice" type="Integer" array="False" size=""/>
+            <assign variable="TaxedPrice" expression="totalSeatPrice * 0.07"/>
+        </body>
+    </function>
+    <function name="getTotalPrice" type="Integer" variable="totalPrice">
+        <parameters>
+            <parameter name="numTicket" type="Integer" array="False"/>
+            <parameter name="seatPrice" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="totalPrice" type="Integer" array="False" size=""/>
+            <declare name="totalSeatPrice" type="Integer" array="False" size=""/>
+            <declare name="TaxedPrice" type="Integer" array="False" size=""/>
+            <assign variable="totalSeatPrice" expression="numTicket * seatPrice"/>
+            <assign variable="TaxedPrice" expression="getTaxedPrice(totalSeatPrice)"/>
+            <assign variable="totalPrice" expression="totalSeatPrice + TaxedPrice"/>
+        </body>
+    </function>
+</flowgorithm>
