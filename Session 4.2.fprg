@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="chung"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-10-18 11:53:14 PM"/>
+        <attribute name="created" value="Y2h1bmc7TEFQVE9QLUlCNDNOTU9SOzIwMjAtMTAtMTg7MTE6MjY6MjggUE07Mjg3OA=="/>
+        <attribute name="edited" value="Y2h1bmc7TEFQVE9QLUlCNDNOTU9SOzIwMjAtMTAtMTg7MTE6NTM6MTQgUE07NjsyOTg2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="examScore1" type="Integer" array="False" size=""/>
+            <declare name="examTotal" type="Integer" array="False" size=""/>
+            <declare name="examScore2" type="Integer" array="False" size=""/>
+            <declare name="studentLastname" type="String" array="False" size=""/>
+            <output expression="&quot;Type in student's Last Name &quot;" newline="True"/>
+            <input variable="studentLastname"/>
+            <output expression="&quot;What is the score of Exam 1?&quot;" newline="True"/>
+            <input variable="examScore1"/>
+            <output expression="&quot;What is the score of Exam 2?&quot;" newline="True"/>
+            <input variable="examScore2"/>
+            <declare name="weightedScore" type="Integer" array="False" size=""/>
+            <assign variable="weightedScore" expression="getWeightedScore(examScore1,examScore2)"/>
+            <output expression="&quot;The student's last name,&quot; &amp;studentLastname&amp; &quot; 's final score is&quot; &amp;weightedScore&amp; &quot;Exam 1 score is&quot; &amp;examScore1&amp; &quot; and Exam 2 score is&quot; &amp;examScore2" newline="True"/>
+        </body>
+    </function>
+    <function name="getWeightedScore" type="Integer" variable="examTotal">
+        <parameters>
+            <parameter name="examScore1" type="Integer" array="False"/>
+            <parameter name="examScore2" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="examTotal" type="Integer" array="False" size=""/>
+            <declare name="weightedScore1" type="Integer" array="False" size=""/>
+            <declare name="weightedScore2" type="Integer" array="False" size=""/>
+            <assign variable="weightedScore1" expression="examScore1*0.4"/>
+            <assign variable="weightedScore2" expression="examScore2*0.6"/>
+            <assign variable="examTotal" expression="weightedScore1 + weightedScore2"/>
+        </body>
+    </function>
+</flowgorithm>
